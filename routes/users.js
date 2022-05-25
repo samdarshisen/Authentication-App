@@ -1,17 +1,19 @@
-var mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://samdarshi:samdarshi12@cluster0.lq0ei.mongodb.net/authentication?retryWrites=true&w=majority')
-.then(function(){
-  console.log('Database Connected')
-})
-.catch(function(err){
-  console.log(err)
-})
+const mongoose = require('mongoose');
+const plm = require('passport-local-mongoose');
+let uri = 'mongodb+srv://pratiknew:pratik@pratik.7m6lk.mongodb.net/ck12newFB?retryWrites=true&w=majority'
+mongoose.connect(uri,{ useUnifiedTopology: true ,useNewUrlParser: true});
 
-var schema = mongoose.Schema({
-  name:String,
-  email:String,
-  password:String,
-  username:String
+const userSchema = mongoose.Schema({
+  username: String,
+  name: String,
+  email: String,
+  password: String,
+  posts: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'posts'
+  }]
+});
 
-})
-module.exports=mongoose.model('UserModel' , schema)
+userSchema.plugin(plm);
+
+module.exports = mongoose.model('user', userSchema);

@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Authentication App</title>
-    <link rel='stylesheet' href='/stylesheets/global.css' />
+    <title></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-   <div id="back">
-     <div id="overlay">
-       <div id="left">
-       <img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80" >
-       </div>
-       <div id="right">
-       <h2>Create new account on <br> <span>Authentication App</span></h2>
-       <p>You can register , create an account , login and view your profile.</p>
-       <form action="/reg"method = "post">
-         <input type="text"name = "name"placeholder="Name"required>
-         <input type="email"name = "email"placeholder="E-Mail"required>
-         <input type="password"name = "password"placeholder="Password"required>
-         <input type="text"name = "username"placeholder="User-Name"required>
-         <input type="submit"value="Register As a User">
-         <a href="/login">Already Have an Account?</a>
-       </form>
-       </div>
-     </div>
-   </div>
+    
+    <form action="/profile" method="post">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username">
+
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password">
+
+      <label for="confirm_password">Confirm Password</label>
+      <input type="password" name="confirm_password" id="confirm_password">
+
+      <button type="submit">Register</button>
+    </form>
+
   </body>
 </html>
